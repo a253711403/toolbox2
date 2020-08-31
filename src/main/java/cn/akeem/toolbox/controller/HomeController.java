@@ -15,13 +15,16 @@ public class HomeController {
     @Autowired
     private DeptService deptService;
 
-    @GetMapping("/")
+    public String index() {
+        return "success";
+    }
+
+    @GetMapping("/dept/")
     public List<DeptDto> findAll() {
         return deptService.getDept("");
     }
 
-
-    @GetMapping("/{loc}")
+    @GetMapping("/dept/{loc}")
     public List<DeptDto> find(@PathVariable String loc) {
         return deptService.getDept(loc);
     }
